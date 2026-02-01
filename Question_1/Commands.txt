@@ -1,0 +1,87 @@
+
+Q1 
+---------------------------------
+
+1. Script Creation
+
+1.1 Command: nano analyze.sh
+Explanation: I opened nano editor to create and write the script file analyze.sh.
+
+-------------------------------------------------
+
+1.2 Command: Script written 
+
+#!/usr/bin/env bash
+
+if [ "$#" -ne 1 ]; then
+  echo "Error: Please provide exactly ONE argument (file or directory path)."
+  exit 1
+fi
+
+path="$1"
+
+if [ ! -e "$path" ]; then
+  echo "Error: Path does not exist: $path"
+  exit 1
+fi
+
+if [ -f "$path" ]; then
+  if [ ! -r "$path" ]; then
+    echo "Error: File is not readable: $path"
+    exit 1
+  fi
+
+  echo "Type: File"
+  echo "Path: $path"
+  echo "Lines:      $(wc -l < "$path")"
+  echo "Words:      $(wc -w < "$path")"
+  echo "Characters: $(wc -m < "$path")"
+
+elif [ -d "$path" ]; then
+  if [ ! -r "$path" ]; then
+    echo "Error: Directory is not readable: $path"
+    exit 1
+  fi
+
+  total_files=$(find "$path" -maxdepth 1 -type f 2>/dev/null | wc -l)
+  txt_files=$(find "$path" -maxdepth 1 -type f -name "*.txt" 2>/dev/null | wc -l)
+
+  echo "Type: Directory"
+  echo "Path: $path"
+  echo "Total files: $total_files"
+  echo ".txt files:  $txt_files"
+else
+  echo "Error: Path is neither a regular file nor a directory: $path"
+  exit 1
+fi
+
+Explanation: I wrote a script that accepts exactly one argument.
+
+- If the argument is a file: it displays number of lines, words, and characters.
+- If the argument is a directory: it displays total number of files and number of .txt files.
+- If invalid argument count or path does not exist: it displays an appropriate error message.
+
+-------------------------------------------------
+
+2. Script Execution Directory Case
+
+2.1 Command: ./analyze.sh .
+Explanation: I ran the script with the current directory (.) as the argument.
+It detects a directory and prints total files and .txt files.
+
+-------------------------------------------------
+
+3. Script Execution Invalid Argument Case
+
+3.1 Command: ./analyze.sh
+Explanation: I ran the script without arguments to test error handling.
+It correctly shows an error message.
+
+-------------------------------------------------
+
+4. Script Execution File Case
+
+4.1 Command: ./analyze.sh analyze.sh
+Explanation: I ran the script with analyze.sh as a file argument
+It detects a file and prints line, word, and character counts.
+

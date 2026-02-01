@@ -1,0 +1,53 @@
+
+Q1 
+
+Question 1 outputs — analyze.sh
+------------------------------
+
+1. Script Creation Outputs
+
+1.1 output: no output
+Explanation: nano opens an editor
+-------------------------------------------------
+
+2. Run Script Directory Case Output
+
+2.1 output:
+
+Type: Directory
+Path: .
+Total files: 2
+.txt files: 0
+
+Explanation: The output confirms that the argument "." is a directory.
+It shows there are 2 total files in the current directory, and none are .txt files.
+
+-------------------------------------------------
+
+3. Run Script (Invalid Argument Count) Output
+
+3.1 output:
+
+Error: Please provide exactly ONE argument file or directory path.
+Usage: ./analyze.sh <path>
+
+Explanation: This output appears because I executed the script without providing any argument.
+The script correctly displays an error message and usage format.
+
+-------------------------------------------------
+
+4. Run Script File Case Output
+
+4.1 output:
+
+Type: File
+Path: analyze.sh
+Lines:      57
+Words:      267
+Characters: 1589
+
+Explanation: The output confirms that analyze.sh is a file.
+The script successfully counted and displayed the total number of lines,
+words, and characters inside the file.
+
+
