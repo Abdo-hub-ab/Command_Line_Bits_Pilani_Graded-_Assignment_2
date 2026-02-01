@@ -85,3 +85,7 @@ It correctly shows an error message.
 Explanation: I ran the script with analyze.sh as a file argument
 It detects a file and prints line, word, and character counts.
 
+
+
+
+
