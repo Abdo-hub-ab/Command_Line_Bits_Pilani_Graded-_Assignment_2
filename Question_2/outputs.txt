@@ -1,0 +1,57 @@
+Q2
+
+----------
+1. Script Creation Outputs
+
+1.1 output: no output
+Explanation :nothing prints to the terminal.
+
+-------------------------------------------------
+
+2. Make Script Executable Output
+
+2.1 output:no output
+Explanation:chmod +x runs silently if successful.
+
+-------------------------------------------------
+
+3. Script Execution Output
+
+
+ output: After creating the log file and running 
+
+Total log entries: 4
+INFO: 1
+WARNING: 1
+ERROR: 2
+Most recent ERROR entry:
+2025-01-12 10:17:10 ERROR Network timeout
+Report generated: logsummary_2026-02-01.txt
+
+Explanation: This output shows that the script successfully counted the total number
+of log entries 4, and the number of INFO 1, WARNING 1, and ERROR 2 messages.
+It also displayed the most recent ERROR entry and confirmed that the report file
+logsummary_2026-02-01.txt was generated.
+
+----------------------------------------------
+
+4. Report File Display Output
+
+4.1 output:
+
+Log Summary Report - 2026-02-01
+Log file: log.txt
+---------------------------------
+
+Total log entries: 4
+INFO count:    1
+WARNING count: 1
+ERROR count:   2
+---------------------------------
+
+Most recent ERROR entry:
+2025-01-12 10:17:10 ERROR Network timeout
+
+Explanation: This output shows the contents of the generated report file
+logsummary_2026-02-01.txt. It includes the total entries& counts of each
+log level, and the most recent ERROR message, confirming the script worked correctly
