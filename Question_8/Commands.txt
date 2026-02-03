@@ -1,0 +1,90 @@
+Command:
+
+Q8
+
+1. Script Creation
+
+1.1 Command: nano bg_move.sh
+Explanation: I opened nano editor to create and write the script file bg_move.sh.
+
+-------------------------------------------------
+
+1.2 Command: Script
+
+#!/usr/bin/env bash
+
+if [ "$#" -ne 1 ]; then
+  echo "Error: Please provide exactly ONE directory path."
+  echo "Usage: ./bg_move.sh <directory>"
+  exit 1
+fi
+
+dir="$1"
+
+if [ ! -d "$dir" ]; then
+  echo "Error: Directory does not exist: $dir"
+  exit 1
+fi
+
+backup_dir="$dir/backup"
+mkdir -p "$backup_dir"
+
+echo "Script PID ( $$ ): $$"
+
+for f in "$dir"/*; do
+  if [ -f "$f" ]; then
+    mv "$f" "$backup_dir/" &
+    echo "Started background move for $(basename "$f") with PID: $!"
+  fi
+done
+
+echo "Waiting for all background processes to finish..."
+wait
+echo "All background processes finished."
+
+Explanation: I wrote a script that accepts a directory path and:
+- Creates a backup/ directory inside it
+- Moves each file into backup/ in the background using &
+- Displays PID of each background process using $!
+- Displays the script PID using $$
+- Waits for all background processes to finish using wait
+
+-------------------------------------------------
+
+2. Make Script Executable
+
+2.1 Command: chmod +x bg_move.sh
+Explanation: I used chmod +x to make the script executable.
+
+------------------------------------------------
+
+3. Create Test Directory and Files
+
+3.1 Command: mkdir -p test_move
+Explanation: I created a directory test_move for testing
+
+3.2 Command: echo "File 1" > test_move/a.txt
+Explanation: I created a test file a.txt inside test_move
+
+3.3 Command: echo "File 2" > test_move/b.txt
+Explanation: I created a test file b.txt inside test_move
+
+3.4 Command: echo "File 3" > test_move/c.txt
+Explanation: I created a test file c.txt inside test_move
+
+------------------------------------------------
+
+4. Script Execution
+
+4.1 Command: ./bg_move.sh test_move
+Explanation: I ran the script to move all files in test_move into test_move/backup using background processes.
+
+-------------------------------------------------
+
+5. Verify Files Moved
+
+5.1 Command: ls -l test_move
+Explanation: I listed the directory to confirm backup/ exists and files were moved.
+
+5.2 Command: ls -l test_move/backup
+Explanation: I listed backup/ to confirm the files are inside it.

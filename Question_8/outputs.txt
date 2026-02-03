@@ -1,0 +1,58 @@
+Q8
+
+1. Script Creation Outputs
+
+1.1 output: no output
+Explanation: no output.
+
+-------------------------------------------------
+
+2. Make Script Executable Output
+
+2.1 output: no output
+Explanation: no output.
+
+-------------------------------------------------
+
+3. Create Test Directory and Files Output
+
+3.1 output: no output
+Explanation: no output.
+
+-------------------------------------------------
+
+4. Script Execution Output
+
+4.1 output:
+
+Script PID ( 99015 ): 99015
+Started background move for a.txt with PID: 99017
+Started background move for b.txt with PID: 99019
+Started background move for c.txt with PID: 99021
+Waiting for all background processes to finish...
+All background processes finished.
+
+Explanation: This output shows the script PID using $$ and the PID of each background move process using $!.
+The script then waited for all background processes using wait and printed a completion message.
+
+-------------------------------------------------
+
+5. Verify Files Moved Output
+
+5.1 output:
+
+total 4
+drwxrwxr-x 2 hisenberg hisenberg 4096 Feb  3 18:27 backup
+
+Explanation: This output confirms that the backup directory was created inside test_move and the files were moved out of the main folder.
+
+-------------------------------------------------
+
+5.2 output:
+
+total 12
+-rw-r--r-- 1 hisenberg hisenberg 7 Feb  3 18:26 a.txt
+-rw-r--r-- 1 hisenberg hisenberg 7 Feb  3 18:26 b.txt
+-rw-r--r-- 1 hisenberg hisenberg 7 Feb  3 18:26 c.txt
+
+Explanation: This output confirms that all files a.txt, b.txt, c.txt were successfully moved into test_move/backup.
