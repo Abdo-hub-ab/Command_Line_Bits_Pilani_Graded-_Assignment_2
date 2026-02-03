@@ -21,7 +21,7 @@ Explanation: I created marks.txt and entered student records
 -------------------------------------------------
 
 4. Script Execution 
-5.1 Command : ./validate_results.sh marks.txt
+4.1 Command : ./validate_results.sh marks.txt
 Explanation: I ran the script again after creating marks.txt the script reads the file and prints:
 - Students who failed in exactly ONE subject
 - Students who passed in ALL subjects
