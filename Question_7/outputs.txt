@@ -1,0 +1,73 @@
+Q7
+
+1. Script Creation Outputs
+
+1.1 output: no output
+Explanation: no output.
+
+-------------------------------------------------
+
+2. Make Script Executable Output
+
+2.1 output: no output
+Explanation: no output
+
+-------------------------------------------------
+
+3. Create pattern_input.txt Output
+
+3.1 output: no output
+Explanation: no output.
+
+-------------------------------------------------
+
+4. Script Execution Output
+
+4.1 output:
+
+Created: vowels.txt, consonants.txt, mixed.txt
+
+Explanation: This output confirms the script created the three files vowels.txt, consonants.txt, and mixed.txt.
+
+-------------------------------------------------
+
+5. vowels.txt Output
+
+5.1 output:
+
+aei
+oo
+aeiou
+
+Explanation: These are words containing only vowels. Case was ignored, so "OO" became "oo".
+
+-------------------------------------------------
+
+6. consonants.txt Output
+
+5.2 output:
+
+bcd
+xyz
+sky
+crypt
+rhythm
+bcdfg
+try
+
+Explanation: These are words containing only consonants. Case was ignored, so "BCDFG" became "bcdfg".
+
+-------------------------------------------------
+
+7. mixed.txt Output
+
+5.3 output:
+
+baei
+boat
+beauty
+queue
+bcda
+
+Explanation: These are words containing both vowels and consonants but starting with a consonant.
+In this run, "queue" appeared in mixed.txt based on how the script classified it.

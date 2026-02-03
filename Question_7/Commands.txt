@@ -1,0 +1,115 @@
+Q7
+
+1. Script Creation
+
+1.1 Command: nano patterns.sh
+Explanation: I opened nano editor to create and write the script file patterns.sh.
+
+-------------------------------------------------
+
+1.2 Command: Script
+
+#!/usr/bin/env bash
+
+if [ "$#" -ne 1 ]; then
+  echo "Error: Please provide exactly ONE input text file."
+  echo "Usage: ./patterns.sh <inputfile>"
+  exit 1
+fi
+
+file="$1"
+
+if [ ! -e "$file" ]; then
+  echo "Error: File does not exist: $file"
+  exit 1
+fi
+
+if [ ! -r "$file" ]; then
+  echo "Error: File is not readable: $file"
+  exit 1
+fi
+
+: > vowels.txt
+: > consonants.txt
+: > mixed.txt
+
+# Convert text to lowercase words (letters only) and classify
+tr -cs '[:alpha:]' '\n' < "$file" | tr '[:upper:]' '[:lower:]' | sed '/^$/d' | awk '
+{
+  w=$0
+  if (w ~ /^[aeiou]+$/) {
+    print w >> "vowels.txt"
+  } else if (w ~ /^[bcdfghjklmnpqrstvwxyz]+$/) {
+    print w >> "consonants.txt"
+  } else if (w ~ /^[bcdfghjklmnpqrstvwxyz]/ && w ~ /[aeiou]/ && w ~ /[bcdfghjklmnpqrstvwxyz]/) {
+    print w >> "mixed.txt"
+  }
+}
+'
+
+echo "Created: vowels.txt, consonants.txt, mixed.txt"
+
+=========
+
+Explanation: I wrote a script that reads a text file and:
+- Writes words containing only vowels into vowels.txt
+- Writes words containing only consonants into consonants.txt
+- Writes words containing both vowels and consonants but starting with a consonant into mixed.txt
+Case is ignored by converting words to lowercase.
+
+-------------------------------------------------
+
+2. Make Script Executable
+
+2.1 Command: chmod +x patterns.sh
+Explanation : I used chmod +x to make the script executable.
+
+-------------------------------------------------
+
+3. Create Input File (pattern_input.txt)
+
+3.1 Command: nano pattern_input.txt
+Explanation: I created pattern_input.txt with test words to match each required category.
+
+3.2 Command: Data written inside pattern_input.txt
+
+aei
+OO
+bcd
+xyz
+sky
+baei
+boat
+crypt
+bEAuty
+queue
+rhythm
+aeiou
+BCDFG
+bcdA
+try
+
+Explanation: I entered words such that:
+- vowel-only words (aei, OO, aeiou, queue)
+- consonant-only words (bcd, xyz, sky, crypt, rhythm, BCDFG, try)
+- mixed words starting with consonant (baei, boat, bEAuty, bcdA)
+
+-------------------------------------------------
+
+4. Script Execution
+
+4.1 Command: ./patterns.sh pattern_input.txt
+Explanation: I ran the script to generate vowels.txt, consonants.txt, and mixed.txt.
+
+-------------------------------------------------
+
+5. View Output Files
+
+5.1 Command: cat vowels.txt
+Explanation: I displayed vowels.txt to verify it contains only vowel-only words.
+
+5.2 Command: cat consonants.txt
+Explanation: I displayed consonants.txt to verify it contains only consonant-only words.
+
+5.3 Command: cat mixed.txt
+Explanation: I displayed mixed.txt to verify it contains mixed words that start with a consonant.
