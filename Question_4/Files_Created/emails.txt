@@ -1,0 +1,27 @@
+john123@gmail.com
+john123@gmail.com
+ali_77@yahoo.com
+ali_77@yahoo.com
+SAM_99@outlook.com
+
+john.doe@gmail.com
+mike-12@gmail.com
+noatsymbol.com
+hello@world
+abc@xyz.org
+abc@xyz.co
+name@123.com
+@google.com
+user@site.comm
+space user@gmail.com
+kierna_shinecrank@company.com
+test@GMAIL.com
+valid_user01@protonmail.com
+validuser@abc.com
+user__1@domain.com
+
+wrong@domain.c0m
+wrong@domaincom
+wrongdomain.com
+a@b.com
+A1_b2@letters.com

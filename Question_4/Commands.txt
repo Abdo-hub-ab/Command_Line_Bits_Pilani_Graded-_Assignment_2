@@ -1,0 +1,37 @@
+Q4
+
+
+1. Script Creation
+
+1.1 Command: nano emailcleaner.sh
+Explanation: I opened nano editor to create and write the script file emailcleaner.sh.
+
+-------------------------------------------------
+
+2. Make Script Executable
+
+2.1 Command: chmod +x emailcleaner.sh
+Explanation : I used chmod +x to make the script executable.
+
+-------------------------------------------------
+
+3. Create emails.txt File
+
+3.1 Command: nano emails.txt
+Explanation: I created emails.txt and entered email addresses valid and invalid
+
+-------------------------------------------------
+
+4. Script Execution
+4.1 Command: ./emailcleaner.sh
+Explanation: I ran the script to extract valid emails into valid.txt, invalid emails into invalid.txt, and remove duplicates from valid.txt.
+
+-------------------------------------------------
+
+5. View Output Files
+
+5.1 Command: cat valid.txt
+Explanation: I displayed valid.txt to verify the extracted valid email addresses.
+
+5.2 Command: cat invalid.txt
+Explanation: I displayed invalid.txt to verify the extracted invalid email addresses.

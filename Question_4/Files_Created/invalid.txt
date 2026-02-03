@@ -1,0 +1,9 @@
+john.doe@gmail.com
+mike-12@gmail.com
+hello@world
+abc@xyz.org
+abc@xyz.co
+name@123.com
+user@site.comm
+wrong@domain.c0m
+wrong@domaincom

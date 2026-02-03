@@ -1,0 +1,65 @@
+Q4
+
+1. Script Creation Outputs
+
+1.1 output: no output
+Explanation : nothing prints to the terminal because nano opens an editor.
+
+-------------------------------------------------
+
+2. Make Script Executable Output
+
+2.1 output: no output
+Explanation: no output
+
+-------------------------------------------------
+
+3. Create emails.txt Output
+
+3.1 output: no output
+Explanation: no output
+-------------------------------------------------
+
+4. Script Execution Output
+
+4.1 output:
+
+Valid emails saved to: valid.txt
+Invalid emails saved to: invalid.txt
+
+Explanation: This output confirms that the script successfully extracted valid email addresses into valid.txt and invalid email addresses into invalid.txt.
+
+-------------------------------------------------
+
+5. valid.txt Output
+
+5.1 output:
+
+A1_b2@letters.com
+a@b.com
+ali_77@yahoo.com
+john123@gmail.com
+kierna_shinecrank@company.com
+SAM_99@outlook.com
+test@GMAIL.com
+user__1@domain.com
+user@gmail.com
+valid_user01@protonmail.com
+validuser@abc.com
+
+Explanation: This output shows the list of valid email addresses. Duplicate valid emails were removed using sort -u, so each valid email appears only once.
+
+-------------------------------------------------
+
+5.2 invalid.txt Output
+john.doe@gmail.com
+mike-12@gmail.com
+hello@world
+abc@xyz.org
+abc@xyz.co
+name@123.com
+user@site.comm
+wrong@domain.c0m
+wrong@domaincom
+
+Explanation: This output shows the list of invalid email addresses that do not match the required valid format: letters/digits/underscore @ letters .com
