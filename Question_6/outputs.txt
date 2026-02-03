@@ -1,0 +1,33 @@
+Q6
+
+1. Script Creation Outputs
+
+1.1 output: no output
+Explanation: no output.
+
+-----------------------------------------------
+
+2. Make Script Executable Output
+
+2.1 output: no output
+Explanation: no output.
+
+-------------------------------------------------
+
+3. Create input.txt Output
+
+3.1 output: no output
+Explanation: no output.
+
+-------------------------------------------------
+
+4. Script Execution Output
+
+4.1 output:
+
+Longest word: abdulrahman
+Shortest word: i
+Average word length: 3.63
+Total number of unique words: 30
+
+Explanation: This output shows the longest word, shortest word, average word length, and the total number of unique words from input.txt.

@@ -1,0 +1,80 @@
+Command:
+
+Q6
+---------------------------------
+
+1. Script Creation
+
+1.1 Command: nano metrics.sh
+Explanation: I opened nano editor to create and write the script file metrics.sh.
+
+-------------------------------------------------
+
+1.2 Command: Script
+
+#!/usr/bin/env bash
+
+file="input.txt"
+
+if [ ! -e "$file" ]; then
+  echo "Error: File does not exist: $file"
+  exit 1
+fi
+
+if [ ! -r "$file" ]; then
+  echo "Error: File is not readable: $file"
+  exit 1
+fi
+
+words=$(mktemp)
+
+# Extract words (letters only), lowercase, one word per line
+tr -cs '[:alpha:]' '\n' < "$file" | tr '[:upper:]' '[:lower:]' | sed '/^$/d' > "$words"
+
+if [ ! -s "$words" ]; then
+  echo "Error: No words found in $file"
+  rm -f "$words"
+  exit 1
+fi
+
+longest=$(awk 'length($0)>max{max=length($0); w=$0} END{print w}' "$words")
+shortest=$(awk 'NR==1{min=length($0); w=$0} length($0)<min{min=length($0); w=$0} END{print w}' "$words")
+
+total_words=$(wc -l < "$words")
+total_chars=$(awk '{sum+=length($0)} END{print sum+0}' "$words")
+avg_len=$(awk -v c="$total_chars" -v w="$total_words" 'BEGIN{printf "%.2f", c/w}')
+
+unique_words=$(sort "$words" | uniq | wc -l)
+
+echo "Longest word: $longest"
+echo "Shortest word: $shortest"
+echo "Average word length: $avg_len"
+echo "Total number of unique words: $unique_words"
+
+rm -f "$words"
+
+Explanation: I wrote a script that analyzes input.txt and displays:
+- Longest word
+- Shortest word
+- Average word length
+- Total number of unique words
+-------------------------------------------------
+
+2. Make Script Executable
+
+2.1 Command: chmod +x metrics.sh
+Explanation : I used chmod +x to make the script executable.
+
+-------------------------------------------------
+
+3. Create input.txt File
+
+3.1 Command: nano input.txt
+Explanation: I created input.txt and entered text data to test the script.
+
+-------------------------------------------------
+
+4. Script Execution
+
+4.1 Command: ./metrics.sh
+Explanation: I ran the script to display the longest word, shortest word, average word length, and total unique words.

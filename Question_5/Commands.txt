@@ -1,0 +1,46 @@
+Q5
+
+
+1. Script Creation
+
+1.1 Command: nano sync.sh
+Explanation : I opened nano editor to create and write the script file sync.sh.
+
+-------------------------------------------------
+
+2. Make Script Executable
+
+2.1 Command: chmod +x sync.sh
+Explanation : I used chmod +x to make the script executable.
+
+-------------------------------------------------
+
+3. Create Directories and Test Files
+
+3.1 Command: mkdir -p dirA dirB
+Explanation: I created two directories dirA and dirB for testing the script.
+
+3.2 Command: echo "Hello from A" > dirA/onlyA.txt
+Explanation: I created a file that exists only in dirA.
+
+3.3 Command: echo "Hello from B" > dirB/onlyB.txt
+Explanation: I created a file that exists only in dirB.
+
+3.4 Command: echo "SAME CONTENT" > dirA/common_same.txt
+Explanation: I created a common file in dirA with same content.
+
+3.5 Command: echo "SAME CONTENT" > dirB/common_same.txt
+Explanation: I created the same-named common file in dirB with the same content.
+
+3.6 Command: echo "Content A version" > dirA/common_diff.txt
+Explanation: I created a common file in dirA with different content.
+
+3.7 Command: echo "Content B version" > dirB/common_diff.txt
+Explanation: I created the same-named common file in dirB with different content.
+
+-----------------------------------------------
+
+4. Script Execution
+
+4.1 Command: ./sync.sh dirA dirB
+Explanation: I ran the script to compare dirA and dirB, list unique files, annd check whether common files match or differ.

@@ -1,0 +1,41 @@
+Q5
+
+1. Script Creation Outputs
+
+1.1 output: no output
+Explanation : no output
+
+-------------------------------------------------
+
+2. Make Script Executable Output
+
+2.1 output: no output
+Explanation: no output
+
+
+-------------------------------------------------
+
+3. Create Directories and Files Output
+
+3.1 output: no output
+Explanation: no output
+
+-------------------------------------------------
+
+4. Script Execution Output
+
+4.1 output:
+
+Files present only in dirA:
+onlyA.txt
+
+Files present only in dirB:
+onlyB.txt
+
+Files present in both directories (content check):
+common_diff.txt -> DIFFER
+common_same.txt -> MATCH
+
+Explanation: This output shows that the script correctly listed files that exist only in dirA and only in dirB.
+It also compares files with the same name in both directories and reports whether their content MATCHED or DIFFERED using diff.
+
