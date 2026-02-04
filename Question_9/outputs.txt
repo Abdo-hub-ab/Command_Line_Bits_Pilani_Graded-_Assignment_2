@@ -1,0 +1,42 @@
+Q9
+
+1. Program Creation Outputs
+
+1.1 output: no output
+Explanation: no output.
+
+-------------------------------------------------
+
+2. Compile Program Output
+
+2.1 output: no output
+Explanation: no output.
+
+-------------------------------------------------
+
+3. Run Program 
+3.1 output:
+
+Parent PID: 9574
+Child 1 started. PID: 9575 (Parent: 9574)
+Child 2 started. PID: 9576 (Parent: 9574)
+Child 3 started. PID: 9577 (Parent: 9574)
+Child 4 started. PID: 9578 (Parent: 9574)
+Child 5 started. PID: 9579 (Parent: 9574)
+Child 1 exiting. PID: 9575
+Parent cleaned child PID: 9575
+Child 2 exiting. PID: 9576
+Parent cleaned child PID: 9576
+Child 3 exiting. PID: 9577
+Parent cleaned child PID: 9577
+Child 4 exiting. PID: 9578
+Parent cleaned child PID: 9578
+Child 5 exiting. PID: 9579
+Parent cleaned child PID: 9579
+All child processes cleaned. No zombies remain.
+
+Explanation: This output shows that multiple child processes were created using fork()
+Each child process exited, and the parent process used wait() to clean (reap) each
+terminated child by printing the PID of every child it cleaned. This prevents zombie
+processes from remaining in the system 
+

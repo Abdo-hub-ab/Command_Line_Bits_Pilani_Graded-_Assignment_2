@@ -1,0 +1,74 @@
+Command:
+
+Q9
+---------------------------------
+
+1. Program Creation
+
+1.1 Command: nano zombie_prevention.c
+Explanation: I opened nano editor to create and write the C program file zombie_prevention.c.
+
+-------------------------------------------------
+
+1.2 Command: C Program
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/wait.h>
+
+int main() {
+    int i;
+    int num_children = 5;
+
+    printf("Parent PID: %d\n", getpid());
+
+    for (i = 0; i < num_children; i++) {
+        pid_t pid = fork();
+
+        if (pid < 0) {
+            perror("fork failed");
+            exit(1);
+        }
+
+        if (pid == 0) {
+            // Child process
+            printf("Child %d started. PID: %d (Parent: %d)\n", i + 1, getpid(), getppid());
+            sleep(1 + i);   // different exit times
+            printf("Child %d exiting. PID: %d\n", i + 1, getpid());
+            exit(0);
+        }
+    }
+
+    // Parent process reaps all children to prevent zombies
+    for (i = 0; i < num_children; i++) {
+        int status;
+        pid_t cleaned = wait(&status);
+        if (cleaned > 0) {
+            printf("Parent cleaned child PID: %d\n", cleaned);
+        }
+    }
+
+    printf("All child processes cleaned. No zombies remain.\n");
+    return 0;
+}
+
+Explanation: I wrote a C program that demonstrates zombie process prevention.
+- It creates multiple child processes using fork().
+- Each child exits after a short delay.
+- The parent process uses wait() to clean terminated child processes and prints each PID it cleans.
+
+-------------------------------------------------
+
+2. Compile Program
+
+2.1 Command: gcc zombie_prevention.c -o zombie_prevention
+Explanation: I compiled the C program using gcc to generate an executable named zombie_prevention.
+
+-------------------------------------------------
+
+3. Run Program
+
+3.1 Command: ./zombie_prevention
+Explanation: I ran the program to observe child creation and the parent cleaning each child process to prevent zombies.
+ 
