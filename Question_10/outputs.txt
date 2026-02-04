@@ -1,0 +1,26 @@
+Q10
+
+1. Program Creation Outputs
+
+1.1 output: no output
+Explanation: no output.
+
+-------------------------------------------------
+
+2. Compile Program Output
+
+2.1 output: no output
+Explanation: no output.
+
+-------------------------------------------------
+
+3. Run Program Output
+
+3.1 output:
+
+Parent running. PID: 25809
+Parent received SIGTERM. Exiting gracefully.
+
+Explanation: This output shows the parent process started and displayed its PID
+After 5 seconds, the first child process sent SIGTERM to the parent
+The parent handled SIGTERM using the signal handler and exited gracefully
